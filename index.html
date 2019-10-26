@@ -148,7 +148,7 @@ document.getElementById("inputdate").setAttribute("placeholder", "dd/mm/yyyy");
 
  function validatedate() {
 var dateText = document.getElementById("inputdate");
-                  if (dateText && dateText.length==10) {
+                  if (dateText) {
                       try {
                           var errorMessage = "";                         
                           var splitComponents = dateText.value.split('/');
@@ -195,10 +195,9 @@ var dateText = document.getElementById("inputdate");
                           alert(e);
                           return false;
                       }
-		
-                  return true;
-                  } else return false;
-              }
+                  } 
+	 	return true;
+ }
 
 function dateCheck(){
 var printerror = "";
