@@ -174,7 +174,7 @@ var dateText = document.getElementById("inputdate");
                               if (errorMessage == "") {
                                   // assuming no leap year by default
                                   var daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-                                  if (year % 4 == 0) {
+                                  if ( (year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ) {
                                       // current year is a leap year
                                       daysPerMonth[1] = 29;
                                   }
@@ -201,10 +201,21 @@ var dateText = document.getElementById("inputdate");
 
 function dateCheck(){
 var printerror = "";
-if (validatedate()){
-printerror = "PASSED";
-} else printerror = "FAILED";
 
+if (document.getElementById("inputdate").value.length != 10)
+{
+	var errorMessage = "Please enter the date in dd/mm/yyyy format";
+	alert(errorMessage);
+	printerror = "FAILED";
+}
+else
+{
+	if (validatedate())
+	{
+		printerror = "PASSED";
+	}
+	else printerror = "FAILED";
+}
 _result.innerHTML = "Result : <br>" + printerror;
 }
 
