@@ -148,11 +148,11 @@ document.getElementById("inputdate").setAttribute("placeholder", "dd/mm/yyyy");
 
  function validatedate() {
 var dateText = document.getElementById("inputdate");
-                  if (dateText) {
+                  if (dateText && dateText.length==10) {
                       try {
                           var errorMessage = "";                         
                           var splitComponents = dateText.value.split('/');
-                          if (splitComponents.length > 0 && dateText.length < 11) {
+                          if (splitComponents.length > 0) {
                               var day = parseInt(splitComponents[0]);
                               var month = parseInt(splitComponents[1]);
                               var year = parseInt(splitComponents[2]);
@@ -195,8 +195,7 @@ var dateText = document.getElementById("inputdate");
                           alert(e);
                           return false;
                       }
-                  }
-
+                  } else return false;
                   return true;
               }
 
