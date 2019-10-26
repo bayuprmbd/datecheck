@@ -174,7 +174,7 @@ var dateText = document.getElementById("inputdate");
                               if (errorMessage == "") {
                                   // assuming no leap year by default
                                   var daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-                                  if ( (year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ) {
+                                  if ( ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0) ) {
                                       // current year is a leap year
                                       daysPerMonth[1] = 29;
                                   }
